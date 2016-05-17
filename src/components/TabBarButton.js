@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  Text,
   TouchableOpacity,
   StyleSheet,
   PropTypes
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default React.createClass({
   displayName: 'TabBarButton',
@@ -19,7 +19,7 @@ export default React.createClass({
         onPress={this.props.action}
         style={[styles.button, this.props.isSelected && styles.selected]}
         >
-        <Text>{this.props.text}</Text>
+        <Icon name={this.props.text} size={20} />
       </TouchableOpacity>
     );
   }

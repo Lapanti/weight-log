@@ -34,13 +34,13 @@ const NavigationView = React.createClass({
 
     return (
       <View style={styles.container}>
-        {tabs}
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
         />
+        {tabs}
       </View>
     );
   }
@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
   },
   viewContainer: {
     position: 'absolute',
-    top: 0,
+    top: TAB_BAR_HEIGHT,
     left: 0,
     right: 0,
-    bottom: TAB_BAR_HEIGHT
+    bottom: 0
   },
   hidden: {
     overflow: 'hidden',
