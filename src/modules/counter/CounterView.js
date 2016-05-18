@@ -19,6 +19,7 @@ const CounterView = React.createClass({
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
   },
+
   increment() {
     this.props.dispatch(CounterState.increment());
   },

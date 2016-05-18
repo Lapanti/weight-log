@@ -5,11 +5,19 @@ const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
 const POP_ROUTE = 'NavigationState/POP_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 const NAVIGATION_COMPLETED = 'NavigationState/NAVIGATION_COMPLETED';
+const SWIPE_TAB = 'NavigationState/SWIPE_TAB';
 
 export function switchTab(index) {
   return {
     type: SWITCH_TAB,
     payload: index
+  };
+}
+
+export function swipeTab(direction) {
+  return {
+    type: SWIPE_TAB,
+    payload: direction
   };
 }
 
@@ -39,6 +47,10 @@ const initialState = fromJS(
     createNavigationState('ProfileTab', 'user', [{key: 'Color', title: 'Color'}])
   ]));
 
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
 export default function NavigationReducer(state = initialState, action) {
   switch (action.type) {
     case PUSH_ROUTE:
@@ -59,6 +71,9 @@ export default function NavigationReducer(state = initialState, action) {
 
     case SWITCH_TAB:
       return state.set('index', action.payload);
+
+    case SWIPE_TAB:
+      return state.set('index', clamp((state.get('index') + action.payload), 0, state.get('children').size));
 
     case NAVIGATION_COMPLETED:
       return state.set('isNavigating', false);
