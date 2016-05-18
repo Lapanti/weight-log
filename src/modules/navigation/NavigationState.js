@@ -15,6 +15,7 @@ export function switchTab(index) {
 }
 
 export function swipeTab(direction) {
+  console.log('Swiping: ', direction);
   return {
     type: SWIPE_TAB,
     payload: direction
@@ -73,7 +74,9 @@ export default function NavigationReducer(state = initialState, action) {
       return state.set('index', action.payload);
 
     case SWIPE_TAB:
-      return state.set('index', clamp((state.get('index') + action.payload), 0, state.get('children').size));
+      return state.set('index',
+        clamp((state.get('index') + action.payload), 0, state.get('children').size - 1)
+      );
 
     case NAVIGATION_COMPLETED:
       return state.set('isNavigating', false);

@@ -29,11 +29,11 @@ const NavigationView = React.createClass({
       onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderRelease: (evt, gestureState) => {
         var width = Dimensions.get('window').width;
-        if (gestureState.dx > (width / 2)) {
-          if (gestureState.moveX > (gestureState.x0)) {
+        if (Math.abs(gestureState.dx) > (width / 2)) {
+          if (gestureState.dx > 0) {
             this.props.swipeTab(-1);
           }
-          if (gestureState.moveX < (gestureState.x0)) {
+          if (gestureState.dx < 0) {
             this.props.swipeTab(1);
           }
         }
