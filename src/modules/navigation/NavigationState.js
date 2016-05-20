@@ -5,20 +5,11 @@ const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
 const POP_ROUTE = 'NavigationState/POP_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 const NAVIGATION_COMPLETED = 'NavigationState/NAVIGATION_COMPLETED';
-const SWIPE_TAB = 'NavigationState/SWIPE_TAB';
 
 export function switchTab(index) {
   return {
     type: SWITCH_TAB,
     payload: index
-  };
-}
-
-export function swipeTab(direction) {
-  console.log('Swiping: ', direction);
-  return {
-    type: SWIPE_TAB,
-    payload: direction
   };
 }
 
@@ -43,14 +34,10 @@ export function navigationCompleted() {
 
 const initialState = fromJS(
   createNavigationState('MainNavigation', 'App', [
-    createNavigationState('PlayTab', 'flag-o', [{key: 'Counter', title: 'Counter'}]),
+    createNavigationState('PlayTab', 'flag-o', [{key: 'Play', title: 'Play'}]),
     createNavigationState('StatsTab', 'area-chart', [{key: 'Color', title: 'Color'}]),
-    createNavigationState('ProfileTab', 'user', [{key: 'Color', title: 'Color'}])
+    createNavigationState('ProfileTab', 'user', [{key: 'Counter', title: 'Counter'}])
   ]));
-
-function clamp(num, min, max) {
-  return Math.min(Math.max(num, min), max);
-}
 
 export default function NavigationReducer(state = initialState, action) {
   switch (action.type) {
@@ -72,11 +59,6 @@ export default function NavigationReducer(state = initialState, action) {
 
     case SWITCH_TAB:
       return state.set('index', action.payload);
-
-    case SWIPE_TAB:
-      return state.set('index',
-        clamp((state.get('index') + action.payload), 0, state.get('children').size - 1)
-      );
 
     case NAVIGATION_COMPLETED:
       return state.set('isNavigating', false);

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {popRoute, switchTab, navigationCompleted, swipeTab} from './NavigationState';
+import {popRoute, switchTab, navigationCompleted} from './NavigationState';
 import NavigationView from './NavigationView';
 
 export default connect(
@@ -9,9 +9,6 @@ export default connect(
   dispatch => ({
     switchTab(index) {
       dispatch(switchTab(index));
-    },
-    swipeTab(direction) {
-      dispatch(swipeTab(direction));
     },
     onNavigate(action) {
       // The "back" and "BackAction" actions are fired from NavigationExperimental when
