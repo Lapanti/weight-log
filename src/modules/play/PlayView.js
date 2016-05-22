@@ -1,106 +1,101 @@
 import * as PlayState from './PlayState';
-import * as NavigationState from '../../modules/navigation/NavigationState';
 import React from 'react';
 import {
   PropTypes,
   StyleSheet,
   TouchableOpacity,
-  Image,
   Text,
   View
 } from 'react-native';
 
 const PlayView = React.createClass({
   propTypes: {
-    counter: PropTypes.number.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
+    state: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
   },
 
-  increment() {
-    this.props.dispatch(PlayState.increment());
-  },
-  reset() {
-    this.props.dispatch(PlayState.reset());
-  },
-  random() {
-    this.props.dispatch(PlayState.random());
-  },
-  bored() {
-    this.props.dispatch(NavigationState.pushRoute({key: 'Color'}));
+  addHit(hittype) {
+    this.props.dispatch.addHit(hittype);
   },
 
-  renderUserInfo() {
-    if (!this.props.userName) {
-      return null;
-    }
-
-    return (
-      <View style={styles.userContainer}>
-        <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
-        />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
-        </Text>
-      </View>
-    );
+  endGame() {
+    this.props.dispatch.endGame();
   },
+
+  endHole() {
+    this.props.dispatch.endHole();
+  },
+
   render() {
-    const loadingStyle = this.props.loading
-      ? {backgroundColor: '#eee'}
-      : null;
+
+    function addHits(acc, curr, idx) {
+      return acc + idx + ': ' + curr + ' ';
+    }
 
     return (
       <View style={styles.container}>
 
-        {this.renderUserInfo()}
+        <Text style={styles.play}>
+          {'Game: ' + this.props.state.game + ', hole: ' + this.props.state.holes.size}
+        </Text>
 
-        <TouchableOpacity
-          onPress={this.increment}
-          style={[styles.counterButton, loadingStyle]}>
-          <Text style={styles.counter}>
-            {this.props.counter}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.reset}>
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.TEE)}>
           <Text style={styles.linkButton}>
-            Reset
+            Tee
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.random}>
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.ROUGH)}>
           <Text style={styles.linkButton}>
-            Random
+            Rough
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.bored} accessible={true}>
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.FAIRWAY)}>
           <Text style={styles.linkButton}>
-            {'I\'m bored!'}
+            Fairway
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.BUNKER)}>
+          <Text style={styles.linkButton}>
+            Bunker
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.GREEN)}>
+          <Text style={styles.linkButton}>
+            Green
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.addHit(PlayState.HITTYPES.PENALTY)}>
+          <Text style={styles.linkButton}>
+            Penalty
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.endHole} accessible={true}>
+          <Text style={styles.linkButton}>
+            {'End hole'}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.endGame} accessible={true}>
+          <Text style={styles.linkButton}>
+            {'End game'}
+          </Text>
+        </TouchableOpacity>
+
+        <Text style={styles.play}>
+          {this.props.state.holes.reduce(addHits, '')}
+        </Text>
 
       </View>
     );
   }
 });
-
-const circle = {
-  borderWidth: 0,
-  borderRadius: 40,
-  width: 80,
-  height: 80
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -109,22 +104,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white'
   },
-  userContainer: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  userProfilePhoto: {
-    ...circle,
-    alignSelf: 'center'
-  },
-  counterButton: {
-    ...circle,
-    backgroundColor: 'green',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20
-  },
-  counter: {
+  play: {
     color: 'white',
     fontSize: 20,
     textAlign: 'center'
