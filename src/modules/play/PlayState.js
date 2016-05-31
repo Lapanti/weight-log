@@ -20,7 +20,7 @@ const ADD_HIT = 'PlayState/ADD_HIT';
 const SAVE_COMPLETE = 'PlayState/SAVE_COMPLETE';
 
 // Types of hit
-const HITTYPES = {
+export const HITTYPES = {
   DEFAULT: 'Hit',
   TEE: 'Tee',
   ROUGH: 'Rough',
@@ -65,10 +65,10 @@ export default function PlayStateReducer(state = initialState, action = {}) {
       );
 
     case END_HOLE:
-      return state.update('holes', holes => holes.add(initialHole(holes.size)));
+      return state.update('holes', holes => holes.add(initialHole()));
 
     case ADD_HIT:
-      state.holes.last().hits.add(action.payload);
+      //state.update('holes', holes => holes.last().add(action.payload));
       return state;
 
     case SAVE_COMPLETE:

@@ -2,9 +2,7 @@ import React from 'react';
 import {
   View,
   PropTypes,
-  StyleSheet,
-  PanResponder,
-  Dimensions
+  StyleSheet
 } from 'react-native';
 import AppRouter from '../AppRouter';
 import NavigationTabView from './NavigationTabView';
@@ -17,31 +15,8 @@ const NavigationView = React.createClass({
     router: PropTypes.func.isRequired,
     navigationState: PropTypes.object.isRequired,
     onNavigate: PropTypes.func.isRequired,
-    switchTab: PropTypes.func.isRequired,
-    swipeTab: PropTypes.func.isRequired
+    switchTab: PropTypes.func.isRequired
   },
-
-  componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: (evt, gestureState) => {
-        var width = Dimensions.get('window').width;
-        if (Math.abs(gestureState.dx) > (width / 2)) {
-          if (gestureState.dx > 0) {
-            this.props.swipeTab(-1);
-          }
-          if (gestureState.dx < 0) {
-            this.props.swipeTab(1);
-          }
-        }
-      }
-    });
-  },
-
-  _panResponder: {},
 
   render() {
     const {children, index} = this.props.navigationState;
@@ -65,7 +40,7 @@ const NavigationView = React.createClass({
           currentTabIndex={index}
           switchTab={this.props.switchTab}
         />
-        <View style={styles.container} {...this._panResponder.panHandlers}>
+        <View style={styles.container}>
           {tabs}
         </View>
       </View>
