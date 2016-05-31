@@ -19,6 +19,14 @@ const NavigationView = React.createClass({
     switchTab: PropTypes.func.isRequired
   },
 
+  onPageSelected(e) {
+    this.props.switchTab(e.nativeEvent.position);
+  },
+
+  go(page) {
+    this.viewPager.setPage(page);
+  },
+
   render() {
     const {children, index} = this.props.navigationState;
     const tabs = children.map((tabState, tabIndex) => {
@@ -36,8 +44,9 @@ const NavigationView = React.createClass({
     return (
       <View style={styles.container}>
         <ViewPagerAndroid
-          style={styles.container}
+          style={[styles.container, styles.viewContainer]}
           initialPage={0}
+          onPageSelected={this.onPageSelected}
           ref={viewPager => { this.viewPager = viewPager; }}>
           {tabs}
         </ViewPagerAndroid>
@@ -46,6 +55,7 @@ const NavigationView = React.createClass({
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
+          selectTab={this.go}
         />
       </View>
     );
@@ -58,10 +68,10 @@ const styles = StyleSheet.create({
   },
   viewContainer: {
     position: 'absolute',
-    top: TAB_BAR_HEIGHT,
+    top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: TAB_BAR_HEIGHT
   },
   hidden: {
     overflow: 'hidden',
