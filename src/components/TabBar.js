@@ -13,8 +13,7 @@ const TabBar = React.createClass({
     tabs: PropTypes.array.isRequired,
     height: PropTypes.number.isRequired,
     currentTabIndex: PropTypes.number.isRequired,
-    switchTab: PropTypes.func.isRequired,
-    setTab: PropTypes.func.isRequired
+    switchTab: PropTypes.func.isRequired
   },
 
   render() {
@@ -24,7 +23,6 @@ const TabBar = React.createClass({
         text={tab.title}
         action={() => {
           this.props.switchTab(index);
-          this.props.setTab(index);
         }}
         isSelected={index === this.props.currentTabIndex}
       />

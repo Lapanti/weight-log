@@ -46,7 +46,6 @@ const NavigationView = React.createClass({
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
-          setTab={this.viewPager.setPageWithoutAnimation}
         />
       </View>
     );
