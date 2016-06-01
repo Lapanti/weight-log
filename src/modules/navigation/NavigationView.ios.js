@@ -3,7 +3,7 @@ import {
   View,
   PropTypes,
   StyleSheet,
-  PanResponder,
+  ScrollView,
   Dimensions
 } from 'react-native';
 import AppRouter from '../AppRouter';
@@ -11,43 +11,26 @@ import NavigationTabView from './NavigationTabView';
 import TabBar from '../../components/TabBar';
 
 const TAB_BAR_HEIGHT = 50;
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const NavigationView = React.createClass({
   propTypes: {
     router: PropTypes.func.isRequired,
     navigationState: PropTypes.object.isRequired,
     onNavigate: PropTypes.func.isRequired,
-    switchTab: PropTypes.func.isRequired,
-    swipeTab: PropTypes.func.isRequired
+    switchTab: PropTypes.func.isRequired
   },
 
-  componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: (evt, gestureState) => {
-        var width = Dimensions.get('window').width;
-        if (Math.abs(gestureState.dx) > (width / 2)) {
-          if (gestureState.dx > 0) {
-            this.props.swipeTab(-1);
-          }
-          if (gestureState.dx < 0) {
-            this.props.swipeTab(1);
-          }
-        }
-      }
-    });
-  },
+  selectTab() {
 
-  _panResponder: {},
+  },
 
   render() {
     const {children, index} = this.props.navigationState;
     const tabs = children.map((tabState, tabIndex) => {
       return (
-        <View key={'tab' + tabIndex} style={[styles.viewContainer, index !== tabIndex && styles.hidden]}>
+        <View key={'tab' + tabIndex} style={[styles.viewContainer]}>
           <NavigationTabView
             router={AppRouter}
             navigationState={tabState}
@@ -59,15 +42,23 @@ const NavigationView = React.createClass({
 
     return (
       <View style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          horizontal={true}
+          pagingEnabled={true}
+          snapToAlignment='start'
+          contentContainerStyle={styles.container}
+          centerContent={true}
+          >
+          {tabs}
+        </ScrollView>
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
+          selectTab={this.selectTab}
         />
-        <View style={styles.container} {...this._panResponder.panHandlers}>
-          {tabs}
-        </View>
       </View>
     );
   }
@@ -78,16 +69,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   viewContainer: {
-    position: 'absolute',
-    top: TAB_BAR_HEIGHT,
-    left: 0,
-    right: 0,
-    bottom: 0
-  },
-  hidden: {
-    overflow: 'hidden',
-    width: 0,
-    height: 0
+    flex: 1,
+    width: WIDTH,
+    height: HEIGHT - TAB_BAR_HEIGHT,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
