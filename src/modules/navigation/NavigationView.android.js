@@ -3,8 +3,7 @@ import {
   View,
   PropTypes,
   StyleSheet,
-  PanResponder,
-  Dimensions
+  ViewPagerAndroid
 } from 'react-native';
 import AppRouter from '../AppRouter';
 import NavigationTabView from './NavigationTabView';
@@ -17,31 +16,16 @@ const NavigationView = React.createClass({
     router: PropTypes.func.isRequired,
     navigationState: PropTypes.object.isRequired,
     onNavigate: PropTypes.func.isRequired,
-    switchTab: PropTypes.func.isRequired,
-    swipeTab: PropTypes.func.isRequired
+    switchTab: PropTypes.func.isRequired
   },
 
-  componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: (evt, gestureState) => {
-        var width = Dimensions.get('window').width;
-        if (Math.abs(gestureState.dx) > (width / 2)) {
-          if (gestureState.dx > 0) {
-            this.props.swipeTab(-1);
-          }
-          if (gestureState.dx < 0) {
-            this.props.swipeTab(1);
-          }
-        }
-      }
-    });
+  onPageSelected(e) {
+    this.props.switchTab(e.nativeEvent.position);
   },
 
-  _panResponder: {},
+  go(page) {
+    this.viewPager.setPage(page);
+  },
 
   render() {
     const {children, index} = this.props.navigationState;
@@ -59,15 +43,20 @@ const NavigationView = React.createClass({
 
     return (
       <View style={styles.container}>
+        <ViewPagerAndroid
+          style={[styles.container, styles.viewContainer]}
+          initialPage={0}
+          onPageSelected={this.onPageSelected}
+          ref={viewPager => { this.viewPager = viewPager; }}>
+          {tabs}
+        </ViewPagerAndroid>
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
+          selectTab={this.go}
         />
-        <View style={styles.container} {...this._panResponder.panHandlers}>
-          {tabs}
-        </View>
       </View>
     );
   }
@@ -79,10 +68,10 @@ const styles = StyleSheet.create({
   },
   viewContainer: {
     position: 'absolute',
-    top: TAB_BAR_HEIGHT,
+    top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: TAB_BAR_HEIGHT
   },
   hidden: {
     overflow: 'hidden',

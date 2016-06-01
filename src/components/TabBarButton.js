@@ -17,9 +17,13 @@ export default React.createClass({
     return (
       <TouchableOpacity
         onPress={this.props.action}
-        style={[styles.button, this.props.isSelected && styles.selected]}
+        style={styles.button}
         >
-        <Icon name={this.props.text} size={20} />
+        <Icon
+          name={this.props.text}
+          size={20}
+          style={[styles.buttonIcon, this.props.isSelected && styles.selected]}
+          />
       </TouchableOpacity>
     );
   }
@@ -29,9 +33,13 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'black'
   },
   selected: {
-    backgroundColor: 'yellow'
+    color: 'green'
+  },
+  buttonIcon: {
+    color: 'white'
   }
 });
