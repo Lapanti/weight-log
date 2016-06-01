@@ -72,8 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: WIDTH,
     height: HEIGHT - TAB_BAR_HEIGHT,
-    alignItems: 'center',
-    justifyContent: 'center'
+    margin: 0
   }
 });
 
