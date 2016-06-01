@@ -13,7 +13,8 @@ const TabBar = React.createClass({
     tabs: PropTypes.array.isRequired,
     height: PropTypes.number.isRequired,
     currentTabIndex: PropTypes.number.isRequired,
-    switchTab: PropTypes.func.isRequired
+    switchTab: PropTypes.func.isRequired,
+    selectTab: PropTypes.func.isRequired
   },
 
   render() {
@@ -23,6 +24,7 @@ const TabBar = React.createClass({
         text={tab.title}
         action={() => {
           this.props.switchTab(index);
+          this.props.selectTab(index);
         }}
         isSelected={index === this.props.currentTabIndex}
       />
@@ -39,7 +41,7 @@ const TabBar = React.createClass({
 const styles = StyleSheet.create({
   navigationBar: {
     position: 'absolute',
-    top: 0,
+    bottom: 0,
     left: 0,
     right: 0,
     backgroundColor: '#eee',

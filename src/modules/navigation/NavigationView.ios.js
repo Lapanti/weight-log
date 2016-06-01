@@ -2,13 +2,17 @@ import React from 'react';
 import {
   View,
   PropTypes,
-  StyleSheet
+  StyleSheet,
+  ScrollView,
+  Dimensions
 } from 'react-native';
 import AppRouter from '../AppRouter';
 import NavigationTabView from './NavigationTabView';
 import TabBar from '../../components/TabBar';
 
 const TAB_BAR_HEIGHT = 50;
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const NavigationView = React.createClass({
   propTypes: {
@@ -18,11 +22,27 @@ const NavigationView = React.createClass({
     switchTab: PropTypes.func.isRequired
   },
 
+  go(page) {
+    this.scrollView.scrollTo({
+      y: 0,
+      x: page * WIDTH,
+      animated: true
+    });
+  },
+
+  eventToIndex(e) {
+    return parseInt(e.nativeEvent.contentOffset.x / WIDTH);
+  },
+
+  onMomentumScrollEnd(e) {
+    this.props.switchTab(this.eventToIndex(e));
+  },
+
   render() {
     const {children, index} = this.props.navigationState;
     const tabs = children.map((tabState, tabIndex) => {
       return (
-        <View key={'tab' + tabIndex} style={[styles.viewContainer, index !== tabIndex && styles.hidden]}>
+        <View key={'tab' + tabIndex} style={[styles.viewContainer]}>
           <NavigationTabView
             router={AppRouter}
             navigationState={tabState}
@@ -34,15 +54,24 @@ const NavigationView = React.createClass({
 
     return (
       <View style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          onMomentumScrollEnd={this.onMomentumScrollEnd}
+          horizontal={true}
+          pagingEnabled={true}
+          snapToAlignment='start'
+          contentContainerStyle={styles.container}
+          centerContent={true}
+          ref={scrollView => { this.scrollView = scrollView; }}>
+          {tabs}
+        </ScrollView>
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
+          selectTab={this.go}
         />
-        <View style={styles.container}>
-          {tabs}
-        </View>
       </View>
     );
   }
@@ -53,16 +82,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
   viewContainer: {
-    position: 'absolute',
-    top: TAB_BAR_HEIGHT,
-    left: 0,
-    right: 0,
-    bottom: 0
-  },
-  hidden: {
-    overflow: 'hidden',
-    width: 0,
-    height: 0
+    flex: 1,
+    width: WIDTH,
+    height: HEIGHT - TAB_BAR_HEIGHT,
+    margin: 0
   }
 });
 
