@@ -4,5 +4,4 @@ A React Native application that will (ultimately) allow user to track their scor
 
 Licensed under the MIT license.
 
-Powered by
-![Pepperoni - Empowered by Futurice](/docs/pepperoni.png?v=2)
+![Powered by Pepperoni](/docs/pepperoni.png?v=2)
