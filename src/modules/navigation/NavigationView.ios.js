@@ -22,8 +22,20 @@ const NavigationView = React.createClass({
     switchTab: PropTypes.func.isRequired
   },
 
-  selectTab() {
+  go(page) {
+    this.scrollView.scrollTo({
+      y: 0,
+      x: page * WIDTH,
+      animated: true
+    });
+  },
 
+  eventToIndex(e) {
+    return parseInt(e.nativeEvent.contentOffset.x / WIDTH);
+  },
+
+  onMomentumScrollEnd(e) {
+    this.props.switchTab(this.eventToIndex(e));
   },
 
   render() {
@@ -44,12 +56,13 @@ const NavigationView = React.createClass({
       <View style={styles.container}>
         <ScrollView
           style={styles.container}
+          onMomentumScrollEnd={this.onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={true}
           snapToAlignment='start'
           contentContainerStyle={styles.container}
           centerContent={true}
-          >
+          ref={scrollView => { this.scrollView = scrollView; }}>
           {tabs}
         </ScrollView>
         <TabBar
@@ -57,7 +70,7 @@ const NavigationView = React.createClass({
           tabs={children}
           currentTabIndex={index}
           switchTab={this.props.switchTab}
-          selectTab={this.selectTab}
+          selectTab={this.go}
         />
       </View>
     );
