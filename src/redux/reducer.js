@@ -18,7 +18,7 @@ const reducers = {
   navigationState: NavigationStateReducer,
 
   // Game state
-  game: PlayStateReducer,
+  play: PlayStateReducer,
 
   session: SessionStateReducer
 
