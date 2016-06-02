@@ -4,7 +4,9 @@ import {
   PropTypes,
   StyleSheet,
   ScrollView,
-  Dimensions
+  Dimensions,
+  ViewPagerAndroid,
+  Platform
 } from 'react-native';
 import AppRouter from '../AppRouter';
 import NavigationTabView from './NavigationTabView';
@@ -22,12 +24,20 @@ const NavigationView = React.createClass({
     switchTab: PropTypes.func.isRequired
   },
 
+  onPageSelected(e) {
+    this.props.switchTab(e.nativeEvent.position);
+  },
+
   go(page) {
-    this.scrollView.scrollTo({
-      y: 0,
-      x: page * WIDTH,
-      animated: true
-    });
+    if (Platform.OS === 'ios') {
+      this.scrollView.scrollTo({
+        y: 0,
+        x: page * WIDTH,
+        animated: true
+      });
+    } else if (Platform.OS === 'android') {
+      this.viewPager.setPage(page);
+    }
   },
 
   eventToIndex(e) {
@@ -42,7 +52,7 @@ const NavigationView = React.createClass({
     const {children, index} = this.props.navigationState;
     const tabs = children.map((tabState, tabIndex) => {
       return (
-        <View key={'tab' + tabIndex} style={[styles.viewContainer]}>
+        <View key={'tab' + tabIndex} style={[styles.viewContainer, index !== tabIndex && styles.hidden]}>
           <NavigationTabView
             router={AppRouter}
             navigationState={tabState}
@@ -52,19 +62,33 @@ const NavigationView = React.createClass({
       );
     });
 
+    const androidView = (
+      <ViewPagerAndroid
+        style={[styles.container, styles.viewContainer]}
+        initialPage={0}
+        onPageSelected={this.onPageSelected}
+        ref={viewPager => { this.viewPager = viewPager; }}>
+        {tabs}
+      </ViewPagerAndroid>
+    );
+
+    const iosView = (
+      <ScrollView
+        style={styles.container}
+        onMomentumScrollEnd={this.onMomentumScrollEnd}
+        horizontal={true}
+        pagingEnabled={true}
+        snapToAlignment='start'
+        contentContainerStyle={styles.container}
+        centerContent={true}
+        ref={scrollView => { this.scrollView = scrollView; }}>
+        {tabs}
+      </ScrollView>
+    );
+
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          onMomentumScrollEnd={this.onMomentumScrollEnd}
-          horizontal={true}
-          pagingEnabled={true}
-          snapToAlignment='start'
-          contentContainerStyle={styles.container}
-          centerContent={true}
-          ref={scrollView => { this.scrollView = scrollView; }}>
-          {tabs}
-        </ScrollView>
+        {Platform.OS === 'ios' ? iosView : androidView}
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
