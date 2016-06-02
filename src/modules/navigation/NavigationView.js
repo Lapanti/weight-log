@@ -3,13 +3,18 @@ import {
   View,
   PropTypes,
   StyleSheet,
-  ViewPagerAndroid
+  ScrollView,
+  Dimensions,
+  ViewPagerAndroid,
+  Platform
 } from 'react-native';
 import AppRouter from '../AppRouter';
 import NavigationTabView from './NavigationTabView';
 import TabBar from '../../components/TabBar';
 
 const TAB_BAR_HEIGHT = 50;
+const WIDTH = Dimensions.get('window').width;
+const HEIGHT = Dimensions.get('window').height;
 
 const NavigationView = React.createClass({
   propTypes: {
@@ -24,7 +29,23 @@ const NavigationView = React.createClass({
   },
 
   go(page) {
-    this.viewPager.setPage(page);
+    if (Platform.OS === 'ios') {
+      this.scrollView.scrollTo({
+        y: 0,
+        x: page * WIDTH,
+        animated: true
+      });
+    } else if (Platform.OS === 'android') {
+      this.viewPager.setPage(page);
+    }
+  },
+
+  eventToIndex(e) {
+    return parseInt(e.nativeEvent.contentOffset.x / WIDTH);
+  },
+
+  onMomentumScrollEnd(e) {
+    this.props.switchTab(this.eventToIndex(e));
   },
 
   render() {
@@ -41,15 +62,33 @@ const NavigationView = React.createClass({
       );
     });
 
+    const androidView = (
+      <ViewPagerAndroid
+        style={[styles.container, styles.viewContainer]}
+        initialPage={0}
+        onPageSelected={this.onPageSelected}
+        ref={viewPager => { this.viewPager = viewPager; }}>
+        {tabs}
+      </ViewPagerAndroid>
+    );
+
+    const iosView = (
+      <ScrollView
+        style={styles.container}
+        onMomentumScrollEnd={this.onMomentumScrollEnd}
+        horizontal={true}
+        pagingEnabled={true}
+        snapToAlignment='start'
+        contentContainerStyle={styles.container}
+        centerContent={true}
+        ref={scrollView => { this.scrollView = scrollView; }}>
+        {tabs}
+      </ScrollView>
+    );
+
     return (
       <View style={styles.container}>
-        <ViewPagerAndroid
-          style={[styles.container, styles.viewContainer]}
-          initialPage={0}
-          onPageSelected={this.onPageSelected}
-          ref={viewPager => { this.viewPager = viewPager; }}>
-          {tabs}
-        </ViewPagerAndroid>
+        {Platform.OS === 'ios' ? iosView : androidView}
         <TabBar
           height={TAB_BAR_HEIGHT}
           tabs={children}
@@ -67,16 +106,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
   viewContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: TAB_BAR_HEIGHT
-  },
-  hidden: {
-    overflow: 'hidden',
-    width: 0,
-    height: 0
+    flex: 1,
+    width: WIDTH,
+    height: HEIGHT - TAB_BAR_HEIGHT,
+    margin: 0
   }
 });
 
