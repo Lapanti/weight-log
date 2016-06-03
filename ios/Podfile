@@ -1,4 +1,6 @@
-pod 'Lock', '~> 1.24'
-pod 'Lock/TouchID'
-pod 'Lock/SMS'
-pod 'Lock/Email'
+target 'Golf-scorebook' do
+	pod 'Lock', '~> 1.24'
+	pod 'Lock/TouchID'
+	pod 'Lock/SMS'
+	pod 'Lock/Email'
+end

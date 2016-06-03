@@ -5,13 +5,15 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* KindlingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KindlingTests.m */; };
+		00E356F31AD99517003FC87E /* Golf-scorebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Golf-scorebookTests.m */; };
+		12774FA0500D40BDA63FF869 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D54F99D6F65434A988AAD1C /* Foundation.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -20,21 +22,20 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		2C9F19AF7E33D161E1223EFB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008CEA7D62886FB0D6BC7A6 /* libPods.a */; };
+		414F45E26AA2464F8602A930 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE910F6846734D468C167B40 /* Octicons.ttf */; };
+		553DCCDFA8994A90BF178CB8 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C60D0A45ECB540E8AD5ABAEC /* FontAwesome.ttf */; };
+		55F86EB0A13647969C230464 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A4967DB2A364544952F3DCA /* Ionicons.ttf */; };
+		5FC6C3710B0B4C0FB55C6DF5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BF772B480B4D17800906C2 /* EvilIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8635F6CB4C844BBAB75CCC75 /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D57E09588F4FB98692AFE1 /* libA0RNLock.a */; };
+		8DD4EB80E7704AF1B590DB73 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C56071F06DDB48B6AC8E0DB1 /* MaterialIcons.ttf */; };
+		B9936C4A84434CAE8C2734A9 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE307153AFE438AAD318DED /* libRNVectorIcons.a */; };
+		C7C8655248B8F1DF9AE20C77 /* libPods-Golf-scorebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67F97E0DFA6360C4307337 /* libPods-Golf-scorebook.a */; };
+		D808B6F3235D4BC19574F2A8 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D2B41076BD94B3395FC4C3F /* Zocial.ttf */; };
+		DF5B2DA83BB14721B1E44D86 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25F66127A79548F0BF7901AA /* Entypo.ttf */; };
 		E42F50AD1CDBA94300705D4B /* pepperoni.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AA1CDBA94300705D4B /* pepperoni.png */; };
 		E42F50AE1CDBA94300705D4B /* pepperoni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AB1CDBA94300705D4B /* pepperoni@2x.png */; };
 		E42F50AF1CDBA94300705D4B /* pepperoni@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42F50AC1CDBA94300705D4B /* pepperoni@3x.png */; };
-		B9936C4A84434CAE8C2734A9 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE307153AFE438AAD318DED /* libRNVectorIcons.a */; };
-		DF5B2DA83BB14721B1E44D86 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25F66127A79548F0BF7901AA /* Entypo.ttf */; };
-		5FC6C3710B0B4C0FB55C6DF5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BF772B480B4D17800906C2 /* EvilIcons.ttf */; };
-		553DCCDFA8994A90BF178CB8 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C60D0A45ECB540E8AD5ABAEC /* FontAwesome.ttf */; };
-		12774FA0500D40BDA63FF869 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D54F99D6F65434A988AAD1C /* Foundation.ttf */; };
-		55F86EB0A13647969C230464 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A4967DB2A364544952F3DCA /* Ionicons.ttf */; };
-		8DD4EB80E7704AF1B590DB73 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C56071F06DDB48B6AC8E0DB1 /* MaterialIcons.ttf */; };
-		414F45E26AA2464F8602A930 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE910F6846734D468C167B40 /* Octicons.ttf */; };
-		D808B6F3235D4BC19574F2A8 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D2B41076BD94B3395FC4C3F /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Kindling;
+			remoteInfo = "Golf-scorebook";
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -131,39 +132,39 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* KindlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KindlingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* Golf-scorebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Golf-scorebookTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* KindlingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KindlingTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* Golf-scorebookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Golf-scorebookTests.m"; sourceTree = "<group>"; };
+		0D54F99D6F65434A988AAD1C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Kindling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindling.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Kindling/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Kindling/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Golf-scorebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Golf-scorebook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Golf-scorebook/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Golf-scorebook/AppDelegate.m"; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Kindling/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Kindling/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Kindling/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Golf-scorebook/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Golf-scorebook/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Golf-scorebook/main.m"; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		34244268D8C4DC518144A0E4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		15BF772B480B4D17800906C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		25F66127A79548F0BF7901AA /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		43719FF52A8F4FB2B58BA0DE /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		56D57E09588F4FB98692AFE1 /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
-		5D37E567D330668A02D828CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		62296BEEF8C91EC9F12E054F /* Pods-Golf-scorebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Golf-scorebook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Golf-scorebook/Pods-Golf-scorebook.debug.xcconfig"; sourceTree = "<group>"; };
+		6A4967DB2A364544952F3DCA /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		6E67F97E0DFA6360C4307337 /* libPods-Golf-scorebook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Golf-scorebook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		8008CEA7D62886FB0D6BC7A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D2B41076BD94B3395FC4C3F /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A86E23D3DE71B9273A5FCFDA /* Pods-Golf-scorebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Golf-scorebook.release.xcconfig"; path = "Pods/Target Support Files/Pods-Golf-scorebook/Pods-Golf-scorebook.release.xcconfig"; sourceTree = "<group>"; };
 		BCE4BCDA352B4502A5025764 /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
+		C56071F06DDB48B6AC8E0DB1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		C60D0A45ECB540E8AD5ABAEC /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		CE910F6846734D468C167B40 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		DDE307153AFE438AAD318DED /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		E42F50AA1CDBA94300705D4B /* pepperoni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pepperoni.png; path = ../images/pepperoni.png; sourceTree = "<group>"; };
 		E42F50AB1CDBA94300705D4B /* pepperoni@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@2x.png"; path = "../images/pepperoni@2x.png"; sourceTree = "<group>"; };
 		E42F50AC1CDBA94300705D4B /* pepperoni@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pepperoni@3x.png"; path = "../images/pepperoni@3x.png"; sourceTree = "<group>"; };
-		43719FF52A8F4FB2B58BA0DE /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		DDE307153AFE438AAD318DED /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		25F66127A79548F0BF7901AA /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		15BF772B480B4D17800906C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C60D0A45ECB540E8AD5ABAEC /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0D54F99D6F65434A988AAD1C /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6A4967DB2A364544952F3DCA /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C56071F06DDB48B6AC8E0DB1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CE910F6846734D468C167B40 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7D2B41076BD94B3395FC4C3F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +190,8 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				8635F6CB4C844BBAB75CCC75 /* libA0RNLock.a in Frameworks */,
-				2C9F19AF7E33D161E1223EFB /* libPods.a in Frameworks */,
 				B9936C4A84434CAE8C2734A9 /* libRNVectorIcons.a in Frameworks */,
+				C7C8655248B8F1DF9AE20C77 /* libPods-Golf-scorebook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,13 +238,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* KindlingTests */ = {
+		00E356EF1AD99517003FC87E /* Golf-scorebookTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* KindlingTests.m */,
+				00E356F21AD99517003FC87E /* Golf-scorebookTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = KindlingTests;
+			path = "Golf-scorebookTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -270,7 +271,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Kindling */ = {
+		13B07FAE1A68108700A75B9A /* Golf-scorebook */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -281,7 +282,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = Kindling;
+			name = "Golf-scorebook";
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -292,19 +293,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2EFF4A67692D23EA422256BE /* Pods */ = {
+		2CCE876EFB54F8C2739F80E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34244268D8C4DC518144A0E4 /* Pods.debug.xcconfig */,
-				5D37E567D330668A02D828CA /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		57E7EB909103A42A92BAB9C6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8008CEA7D62886FB0D6BC7A6 /* libPods.a */,
+				6E67F97E0DFA6360C4307337 /* libPods-Golf-scorebook.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -348,13 +340,13 @@
 			isa = PBXGroup;
 			children = (
 				E42F50A91CDBA93200705D4B /* Images */,
-				13B07FAE1A68108700A75B9A /* Kindling */,
+				13B07FAE1A68108700A75B9A /* Golf-scorebook */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* KindlingTests */,
+				00E356EF1AD99517003FC87E /* Golf-scorebookTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				2EFF4A67692D23EA422256BE /* Pods */,
-				57E7EB909103A42A92BAB9C6 /* Frameworks */,
 				FBD16A59A5284DAE81836D8B /* Resources */,
+				B5A83EFD94D1FC63C3B87385 /* Pods */,
+				2CCE876EFB54F8C2739F80E3 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -363,10 +355,19 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Kindling.app */,
-				00E356EE1AD99517003FC87E /* KindlingTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Golf-scorebook.app */,
+				00E356EE1AD99517003FC87E /* Golf-scorebookTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B5A83EFD94D1FC63C3B87385 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62296BEEF8C91EC9F12E054F /* Pods-Golf-scorebook.debug.xcconfig */,
+				A86E23D3DE71B9273A5FCFDA /* Pods-Golf-scorebook.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E42F50A91CDBA93200705D4B /* Images */ = {
@@ -400,15 +401,14 @@
 				7D2B41076BD94B3395FC4C3F /* Zocial.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* KindlingTests */ = {
+		00E356ED1AD99517003FC87E /* Golf-scorebookTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KindlingTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "Golf-scorebookTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -419,30 +419,30 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = KindlingTests;
-			productName = KindlingTests;
-			productReference = 00E356EE1AD99517003FC87E /* KindlingTests.xctest */;
+			name = "Golf-scorebookTests";
+			productName = "Golf-scorebookTests";
+			productReference = 00E356EE1AD99517003FC87E /* Golf-scorebookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* Kindling */ = {
+		13B07F861A680F5B00A75B9A /* Golf-scorebook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Kindling" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Golf-scorebook" */;
 			buildPhases = (
-				3ED155751338B6B3E97265FF /* Check Pods Manifest.lock */,
+				E27F645C21189B210B66205E /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				8D61D735F6C9CA23B18BFEEB /* Embed Pods Frameworks */,
-				A1BAF675EF6DE2C30BB1E20E /* Copy Pods Resources */,
+				7CFF605A5F12DB499584AB76 /* [CP] Embed Pods Frameworks */,
+				470AAEDEFD3878664C8F6CE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Kindling;
+			name = "Golf-scorebook";
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* Kindling.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Golf-scorebook.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -522,8 +522,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Kindling */,
-				00E356ED1AD99517003FC87E /* KindlingTests */,
+				13B07F861A680F5B00A75B9A /* Golf-scorebook */,
+				00E356ED1AD99517003FC87E /* Golf-scorebookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -653,49 +653,49 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
-		3ED155751338B6B3E97265FF /* Check Pods Manifest.lock */ = {
+		470AAEDEFD3878664C8F6CE3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Golf-scorebook/Pods-Golf-scorebook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CFF605A5F12DB499584AB76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Golf-scorebook/Pods-Golf-scorebook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E27F645C21189B210B66205E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8D61D735F6C9CA23B18BFEEB /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1BAF675EF6DE2C30BB1E20E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -705,7 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* KindlingTests.m in Sources */,
+				00E356F31AD99517003FC87E /* Golf-scorebookTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,7 +723,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Kindling */;
+			target = 13B07F861A680F5B00A75B9A /* Golf-scorebook */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -735,7 +735,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = Kindling;
+			path = "Golf-scorebook";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -753,7 +753,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = KindlingTests/Info.plist;
+				INFOPLIST_FILE = "Golf-scorebookTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -763,7 +763,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kindling.app/Kindling";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Golf-scorebook.app/Golf-scorebook";
 			};
 			name = Debug;
 		};
@@ -776,7 +776,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = KindlingTests/Info.plist;
+				INFOPLIST_FILE = "Golf-scorebookTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -786,13 +786,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kindling.app/Kindling";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Golf-scorebook.app/Golf-scorebook";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34244268D8C4DC518144A0E4 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 62296BEEF8C91EC9F12E054F /* Pods-Golf-scorebook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -804,17 +804,17 @@
 					"$(SRCROOT)/../node_modules/react-native-lock/A0RNLock/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
-				INFOPLIST_FILE = Kindling/Info.plist;
+				INFOPLIST_FILE = "Golf-scorebook/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Kindling;
+				PRODUCT_NAME = "Golf-scorebook";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D37E567D330668A02D828CA /* Pods.release.xcconfig */;
+			baseConfigurationReference = A86E23D3DE71B9273A5FCFDA /* Pods-Golf-scorebook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -825,11 +825,11 @@
 					"$(SRCROOT)/../node_modules/react-native-lock/A0RNLock/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
-				INFOPLIST_FILE = Kindling/Info.plist;
+				INFOPLIST_FILE = "Golf-scorebook/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Kindling;
+				PRODUCT_NAME = "Golf-scorebook";
 			};
 			name = Release;
 		};
@@ -927,7 +927,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KindlingTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "Golf-scorebookTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -936,7 +936,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Kindling" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Golf-scorebook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
