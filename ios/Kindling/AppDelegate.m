@@ -47,7 +47,7 @@
 #endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"Kindling"
+                                                      moduleName:@"Golf-scorebook"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
 
