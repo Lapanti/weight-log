@@ -29,49 +29,49 @@ const PlayView = React.createClass({
           {'Game: ' + this.props.gameNumber + ', hole: ' + this.props.holes.size}
         </Text>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.TEE)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.TEE)))}>
           <Text style={styles.linkButton}>
             Tee
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.ROUGH)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.ROUGH)))}>
           <Text style={styles.linkButton}>
             Rough
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.FAIRWAY)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.FAIRWAY)))}>
           <Text style={styles.linkButton}>
             Fairway
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.BUNKER)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.BUNKER)))}>
           <Text style={styles.linkButton}>
             Bunker
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.GREEN)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.GREEN)))}>
           <Text style={styles.linkButton}>
             Green
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.PENALTY)))}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.PENALTY)))}>
           <Text style={styles.linkButton}>
             Penalty
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.endHole())} accessible={true}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.endHole())} accessible={true}>
           <Text style={styles.linkButton}>
             {'End hole'}
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.dispatch(PlayState.endGame())} accessible={true}>
+        <TouchableOpacity onPress={() => this.props.dispatch(PlayState.endGame())} accessible={true}>
           <Text style={styles.linkButton}>
             {'End game'}
           </Text>
