@@ -1,4 +1,8 @@
 <resources>
+<<<<<<< HEAD
+    <string name="app_name">PepperoniAppTemplate</string>
+=======
 
     <string name="app_name">Kindling</string>
+>>>>>>> master
 </resources>

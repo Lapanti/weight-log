@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html). These instructions presume a OS X installation.
+Firstly, you need a Mac computer for iOS development. If you want to build an Android app only, you can try [experimental Linux and Windows support](https://facebook.github.io/react-native/docs/linux-windows-support.html). These instructions presume an OS X installation.
 
 Before you get started, make sure you have the following dependencies installed on your machine:
 
@@ -26,10 +26,10 @@ Before you get started, make sure you have the following dependencies installed 
 #### Configuration
 
 1. Before you start you need to create a new application in [Auth0](https://manage.auth0.com/#/applications/)
-2. Set `AUTH0_CLIENT_ID` and `AUTH0_NAMESPACE` in `env.js` according to your application you created in Auth
+2. Set `AUTH0_CLIENT_ID` and `AUTH0_DOMAIN` in `env.js` according to your application you created in Auth
 
         AUTH0_CLIENT_ID: '<CLIENT_ID>',
-        AUTH0_NAMESPACE: '<APP_NAME>.eu.auth0.com'
+        AUTH0_DOMAIN: '<ACCOUNT_NAME>.eu.auth0.com'
 
 3. Follow the steps for your platform below. Check the [official instructions](https://github.com/auth0/react-native-lock) for more information.
 
@@ -54,11 +54,13 @@ The Auth0 login and sign up screens can be customized through the Lock extension
 
   - XCode for iOS development(download from Mac App Store)
   - [Ruby](https://www.ruby-lang.org) (>2.2) to run CocoaPods
-  - [CocoaPods](https://cocoapods.org/) for iOS package management
+  - [CocoaPods](https://cocoapods.org/) 1.0 or newer for iOS package management.
 
-2. Link Auth0 with your iOS project:
+**Please note that CocoaPods 0.x will not work, and at the time of writing the version in Homebrew is still 0.39, so check your `pod --version` and install 1.0 with `gem` if necessary.**
 
-        $ rnpm link react-native-lock (installs Pods)
+2. Install native iOS dependencies
+
+        $ (cd ios; pod install)
 
 3. Build the app and run the simulator:
 

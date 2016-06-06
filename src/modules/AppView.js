@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, PropTypes, StyleSheet} from 'react-native';
+import React, {PropTypes} from 'react';
+import {View, StyleSheet} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
 import AppRouter from './AppRouter';
 import Spinner from 'react-native-gifted-spinner';
@@ -7,6 +7,7 @@ import * as auth0 from '../services/auth0';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
+import DeveloperMenu from '../components/DeveloperMenu';
 
 const AppView = React.createClass({
   propTypes: {
@@ -49,7 +50,10 @@ const AppView = React.createClass({
     }
 
     return (
-      <NavigationViewContainer router={AppRouter} />
+      <View style={{flex: 1}}>
+        <NavigationViewContainer router={AppRouter} />
+        {__DEV__ && <DeveloperMenu />}
+      </View>
     );
   }
 });
