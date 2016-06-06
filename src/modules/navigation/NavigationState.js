@@ -34,8 +34,9 @@ export function navigationCompleted() {
 
 const initialState = fromJS(
   createNavigationState('MainNavigation', 'App', [
-    createNavigationState('HomeTab', 'Home', [{key: 'Counter', title: 'Counter'}]),
-    createNavigationState('ProfileTab', 'Profile', [{key: 'Color', title: 'Color'}])
+    createNavigationState('PlayTab', 'flag-o', [{key: 'Color', title: 'Color'}]),
+    createNavigationState('StatsTab', 'area-chart', [{key: 'Color', title: 'Color'}]),
+    createNavigationState('ProfileTab', 'user', [{key: 'Counter', title: 'Counter'}])
   ]));
 
 export default function NavigationReducer(state = initialState, action) {

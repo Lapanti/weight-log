@@ -8,22 +8,7 @@ const NavigationTabView = React.createClass({
   propTypes: {
     router: PropTypes.func.isRequired,
     navigationState: PropTypes.object.isRequired,
-    onNavigate: PropTypes.func.isRequired,
-    shouldRenderHeader: PropTypes.bool
-  },
-
-  getDefaultProps() {
-    return {shouldRenderHeader: true};
-  },
-
-  renderHeader(props) {
-    console.log('renderHeader', props);
-    return (
-      <Navigation.Header
-        {...props}
-        getTitle={state => state.key}
-      />
-    );
+    onNavigate: PropTypes.func.isRequired
   },
 
   renderScene(props) {
@@ -42,7 +27,6 @@ const NavigationTabView = React.createClass({
         style={{flex: 1}}
         navigationState={this.props.navigationState}
         onNavigate={this.props.onNavigate}
-        renderOverlay={this.props.shouldRenderHeader ? this.renderHeader : null}
         renderScene={this.renderScene}
         applyAnimation={(pos, navState) => {
           // This is the default animation. We redefine it here to be
