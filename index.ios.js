@@ -5,7 +5,7 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 
-const Golf-scorebook = React.createClass({
+const PepperoniAppTemplate = React.createClass({
 
   render() {
     return (
@@ -16,4 +16,4 @@ const Golf-scorebook = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('Golf-scorebook', () => Golf-scorebook);
+AppRegistry.registerComponent('PepperoniAppTemplate', () => PepperoniAppTemplate);

@@ -2,6 +2,6 @@ A React Native application that will (ultimately) allow user to track their scor
 
 ===
 
-Licensed under the MIT license.
+[MIT License](LICENSE)
 
 ![Powered by Pepperoni](/docs/pepperoni.png?v=2)
