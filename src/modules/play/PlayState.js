@@ -1,17 +1,14 @@
-import {Map, OrderedSet} from 'immutable';
+import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop';
 
 // Initial state
 const initialState = Map({
-  number: 1,
-  holes: OrderedSet(initialHole()),
+  gameNumber: 1,
+  holeNumber: 1,
+  hole1: Map(),
   saving: false,
   savingGame: false
 });
-
-function initialHole() {
-  return OrderedSet();
-}
 
 // Actions
 const END_GAME = 'PlayState/END_GAME';
@@ -60,16 +57,19 @@ export default function PlayStateReducer(state = initialState, action = {}) {
   switch (action.type) {
     case END_GAME:
       return loop(
-        state.set('savingGame', true).set('saving', true).update('number', number => number + 1),
+        state.set('savingGame', true).set('saving', true).update('gameNumber', number => number + 1),
         Effects.promise(saveComplete)
       );
 
-    case END_HOLE:
-      return state.update('holes', holes => holes.add(initialHole()));
+    case END_HOLE: {
+      const newHoleNumber = state.get('holeNumber') + 1;
+      return state.set('holeNumber', newHoleNumber).set('hole' + newHoleNumber, Map());
+    }
 
-    case ADD_HIT:
-      //state.update('holes', holes => holes.last().add(action.payload));
-      return state;
+    case ADD_HIT: {
+      const holeName = 'hole' + state.get('holeNumber');
+      return state.update(holeName, holeMap => holeMap.set(holeMap.size + 1, action.payload));
+    }
 
     case SAVE_COMPLETE:
       return state.set('savingGame', false).set('saving', false);

@@ -11,7 +11,6 @@ import PlayViewContainer from './play/PlayViewContainer';
 export default function AppRouter(props) {
   const onNavigate = props.onNavigate;
   const key = props.scene.navigationState.key;
-  console.log('Got key: ', key);
 
   if (key === 'Counter') {
     return <CounterViewContainer onNavigate={onNavigate} />;

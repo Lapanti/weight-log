@@ -3,7 +3,6 @@ import PlayView from './PlayView';
 
 export default connect(
   state => ({
-    gameNumber: state.getIn(['play', 'number']),
-    holes: state.getIn(['play', 'holes'])
+    gameState: state.get('play')
   })
 )(PlayView);

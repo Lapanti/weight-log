@@ -1,7 +1,6 @@
 import * as PlayState from './PlayState';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {
-  PropTypes,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -10,23 +9,25 @@ import {
 
 const PlayView = React.createClass({
   propTypes: {
-    gameNumber: PropTypes.number.isRequired,
-    holes: PropTypes.object.isRequired,
+    gameState: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
   },
 
   render() {
-
-    function addHits(acc, curr, idx) {
-      return acc + idx + ': ' + curr + ' ';
+    function addHits(acc, val, key) {
+      return acc + key + ': ' + val + '\n';
     }
+
+    const gameState = this.props.gameState;
+    const currHoleNumber = gameState.get('holeNumber');
+    const currHole = gameState.get('hole' + currHoleNumber);
 
     return (
       <View style={styles.container}>
 
         <Text style={styles.play}>
-          {'Game: ' + this.props.gameNumber + ', hole: ' + this.props.holes.size}
+          {'Game: ' + gameState.get('gameNumber') + ', hole: ' + currHoleNumber}
         </Text>
 
         <TouchableOpacity onPress={() => this.props.dispatch(PlayState.addHit((PlayState.HITTYPES.TEE)))}>
@@ -78,7 +79,7 @@ const PlayView = React.createClass({
         </TouchableOpacity>
 
         <Text style={styles.play}>
-          {this.props.holes.reduce(addHits, '')}
+          {typeof currHole !== 'undefined' ? currHole.reduce(addHits, '') : null}
         </Text>
 
       </View>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   play: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     textAlign: 'center'
   },
