@@ -12,8 +12,6 @@ import {
 const CounterView = React.createClass({
   propTypes: {
     counter: PropTypes.number.isRequired,
-    userName: PropTypes.string,
-    userProfilePhoto: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
@@ -32,27 +30,6 @@ const CounterView = React.createClass({
     this.props.dispatch(NavigationState.pushRoute({key: 'Color'}));
   },
 
-  renderUserInfo() {
-    if (!this.props.userName) {
-      return null;
-    }
-
-    return (
-      <View style={styles.userContainer}>
-        <Image
-          style={styles.userProfilePhoto}
-          source={{
-            uri: this.props.userProfilePhoto,
-            width: 80,
-            height: 80
-          }}
-        />
-        <Text style={styles.linkButton}>
-          Welcome, {this.props.userName}!
-        </Text>
-      </View>
-    );
-  },
   render() {
     const loadingStyle = this.props.loading
       ? {backgroundColor: '#eee'}
@@ -60,9 +37,6 @@ const CounterView = React.createClass({
 
     return (
       <View style={styles.container}>
-
-        {this.renderUserInfo()}
-
         <TouchableOpacity
           onPress={this.increment}
           style={[styles.counterButton, loadingStyle]}>
@@ -107,14 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
-  },
-  userContainer: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  userProfilePhoto: {
-    ...circle,
-    alignSelf: 'center'
   },
   counterButton: {
     ...circle,

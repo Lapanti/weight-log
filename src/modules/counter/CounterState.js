@@ -1,6 +1,5 @@
 import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop';
-import {generateRandomNumber} from '../../services/randomNumberService';
 
 // Initial state
 const initialState = Map({
@@ -32,7 +31,7 @@ export function random() {
 export async function requestRandomNumber() {
   return {
     type: RANDOM_RESPONSE,
-    payload: await generateRandomNumber()
+    payload: await 1
   };
 }
 

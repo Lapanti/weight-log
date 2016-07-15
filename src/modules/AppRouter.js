@@ -3,7 +3,7 @@
 import React from 'react';
 import CounterViewContainer from './counter/CounterViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
-import PlayViewContainer from './play/PlayViewContainer';
+import FormViewContainer from './form/FormViewContainer';
 
 /**
  * AppRouter is responsible for mapping a navigator scene to a view
@@ -16,8 +16,8 @@ export default function AppRouter(props) {
     return <CounterViewContainer onNavigate={onNavigate} />;
   }
 
-  if (key === 'Play') {
-    return <PlayViewContainer onNavigate={onNavigate} />;
+  if (key === 'Form') {
+    return <FormViewContainer onNavigate={onNavigate} />;
   }
 
   if (key.indexOf('Color') === 0) {
