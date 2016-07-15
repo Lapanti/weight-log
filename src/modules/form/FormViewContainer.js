@@ -3,6 +3,6 @@ import FormView from './FormView';
 
 export default connect(
   state => ({
-    weight: state.getIn(['play', 'weight'])
+    weight: state.getIn(['form', 'weight'])
   })
 )(FormView);

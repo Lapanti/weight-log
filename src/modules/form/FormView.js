@@ -11,7 +11,7 @@ const moment = require('moment');
 
 const FormView = React.createClass({
   propTypes: {
-    weight: PropTypes.number.isRequired,
+    weight: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
   },
@@ -27,7 +27,7 @@ const FormView = React.createClass({
         </Text>
         <TextInput
           value={weight}
-          keyboardType='num-pad'
+          keyboardType='number-pad'
           onChangeText={(newWeight) => this.props.dispatch(FormState.setWeight(newWeight))}
           style={[styles.textInput, valid ? styles.okay : styles.error]}
           />
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     margin: 20,
     height: 40,
     width: 50,
-    borderWidth: 1
+    borderWidth: 1,
+    textAlign: 'center'
   },
   okay: {
     borderColor: 'green'
