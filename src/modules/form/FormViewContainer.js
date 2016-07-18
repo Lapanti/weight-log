@@ -3,6 +3,9 @@ import FormView from './FormView';
 
 export default connect(
   state => ({
-    weight: state.getIn(['form', 'weight'])
+    valid: state.getIn(['form', 'valid']),
+    weight: state.getIn(['form', 'weight']),
+    date: state.getIn(['form', 'date']),
+    history: state.get('weight')
   })
 )(FormView);

@@ -3,6 +3,6 @@ import WeightListView from './WeightListView';
 
 export default connect(
   state => ({
-    formData: state.get('form')
+    history: state.get('weight')
   })
 )(WeightListView);

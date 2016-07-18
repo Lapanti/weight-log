@@ -2,6 +2,7 @@ import {Map} from 'immutable';
 import {combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
 import FormStateReducer from '../modules/form/FormState';
+import WeightStateReducer from '../modules/weight/WeightState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 const reducers = {
@@ -9,8 +10,11 @@ const reducers = {
   //`navigationState`
   navigationState: NavigationStateReducer,
 
-  // Game state
+  // Form state
   form: FormStateReducer,
+
+  // Weight state
+  weight: WeightStateReducer,
 
   session: SessionStateReducer
 

@@ -1,4 +1,5 @@
 import * as FormState from './FormState';
+import * as WeightState from '../weight/WeightState';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
@@ -11,9 +12,18 @@ const moment = require('moment');
 
 const FormView = React.createClass({
   propTypes: {
+    valid: PropTypes.bool.isRequired,
     weight: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     onNavigate: PropTypes.func.isRequired
+  },
+
+  save() {
+    if (this.props.valid) {
+      this.props.dispatch(WeightState.setWeight(this.props.date, this.props.weight));
+    }
   },
 
   render() {
@@ -28,9 +38,15 @@ const FormView = React.createClass({
         <TextInput
           value={weight}
           keyboardType='number-pad'
-          onChangeText={(newWeight) => this.props.dispatch(FormState.setWeight(newWeight))}
+          onChangeText={(newWeight) => this.props.dispatch(FormState.setWeight(newWeight, valid))}
           style={[styles.textInput, valid ? styles.okay : styles.error]}
           />
+        <Text
+          onPress={this.save}
+          style={[styles.submitButton, valid ? styles.okay : styles.error]}
+          >
+          Save
+        </Text>
       </View>
     );
   }
@@ -50,6 +66,11 @@ const styles = StyleSheet.create({
     width: 50,
     borderWidth: 1,
     textAlign: 'center'
+  },
+  submitButton: {
+    alignSelf: 'center',
+    margin: 20,
+    borderWidth: 1
   },
   okay: {
     borderColor: 'green'

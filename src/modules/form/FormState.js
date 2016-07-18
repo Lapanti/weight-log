@@ -1,40 +1,44 @@
 import {Map} from 'immutable';
 
+const moment = require('moment');
+
 // Initial state
 const initialState = Map({
+  valid: false,
+  date: moment().format('D.M.YYYY'),
   weight: ''
 });
 
 // Actions
-const ADD_WEIGHT = 'FormState/ADD_WEIGHT';
+const SET_DATE = 'FormState/SET_DATE';
 const SET_WEIGHT = 'FormState/SET_WEIGHT';
 
-export function addWeight(date, weight) {
+export function setDate(date) {
   return {
-    type: ADD_WEIGHT,
-    payload: {
-      key: date,
-      value: weight
-    }
+    type: SET_DATE,
+    payload: date
   };
 }
 
-export function setWeight(weight) {
+export function setWeight(wweight, vvalid) {
   return {
     type: SET_WEIGHT,
-    payload: weight
+    payload: {
+      weight: wweight,
+      valid: vvalid
+    }
   };
 }
 
 // Reducer
 export default function FormStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case ADD_WEIGHT: {
-      return state.set(action.payload.key, action.payload.value);
+    case SET_DATE: {
+      return state.set('date', action.payload);
     }
 
     case SET_WEIGHT:
-      return state.set('weight', action.payload);
+      return state.set('weight', action.payload.weight).set('valid', action.payload.valid);
 
     default:
       return state;

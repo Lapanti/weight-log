@@ -1,7 +1,7 @@
 /*eslint-disable react/prop-types*/
 
 import React from 'react';
-import ListViewContainer from './list/ListViewContainer';
+import WeightListViewContainer from './list/WeightListViewContainer';
 import ColorViewContainer from './colors/ColorViewContainer';
 import FormViewContainer from './form/FormViewContainer';
 
@@ -13,7 +13,7 @@ export default function AppRouter(props) {
   const key = props.scene.navigationState.key;
 
   if (key === 'List') {
-    return <ListViewContainer onNavigate={onNavigate} />;
+    return <WeightListViewContainer onNavigate={onNavigate} />;
   }
 
   if (key === 'Form') {
