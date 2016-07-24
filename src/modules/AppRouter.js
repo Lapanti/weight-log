@@ -2,7 +2,7 @@
 
 import React from 'react';
 import WeightListViewContainer from './list/WeightListViewContainer';
-import ColorViewContainer from './colors/ColorViewContainer';
+import ChartViewContainer from './chart/ChartViewContainer';
 import FormViewContainer from './form/FormViewContainer';
 
 /**
@@ -20,13 +20,8 @@ export default function AppRouter(props) {
     return <FormViewContainer onNavigate={onNavigate} />;
   }
 
-  if (key.indexOf('Color') === 0) {
-    const index = props.scenes.indexOf(props.scene);
-    return (
-      <ColorViewContainer
-        index={index}
-      />
-    );
+  if (key === 'Chart') {
+    return <ChartViewContainer onNavigate={onNavigate} />;
   }
 
   throw new Error('Unknown navigation key: ' + key);

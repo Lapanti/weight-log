@@ -5,7 +5,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput
+  TextInput,
+  Platform,
+  ToastAndroid
 } from 'react-native';
 
 const moment = require('moment');
@@ -24,6 +26,9 @@ const FormView = React.createClass({
     if (this.props.valid) {
       this.props.dispatch(WeightState.setWeight(this.props.date, this.props.weight));
     }
+    if (Platform.OS === 'android') {
+      ToastAndroid.show('Weight saved', ToastAndroid.SHORT);
+    }
   },
 
   render() {
@@ -33,7 +38,7 @@ const FormView = React.createClass({
     return (
       <View style={styles.container}>
         <Text>
-          {moment().format('D.M.YYYY')}
+          {this.props.date}
         </Text>
         <TextInput
           value={weight}

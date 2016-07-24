@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
-  ListView,
   View,
+  ScrollView,
   Text
 } from 'react-native';
 import Row from './Row';
@@ -16,23 +16,9 @@ const WeightListView = React.createClass({
     onNavigate: PropTypes.func.isRequired
   },
 
-  getInitialState() {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-    return {dataSource: ds.cloneWithRows(this.props.history.map(this.format).sort(this.compare))};
-  },
-
-  format(weightData) {
-    return {
-      date: weightData.get('date'),
-      weight: weightData.get('weight')
-    };
-  },
-
   compare(a, b) {
-    const aD = moment(a.date, 'D.M.YYYY').valueOf();
-    const bD = moment(b.date, 'D.M.YYYY').valueOf();
+    const aD = moment(a.get('date'), 'D.M.YYYY').valueOf();
+    const bD = moment(b.get('date'), 'D.M.YYYY').valueOf();
     if (aD < bD) {
       return -1;
     }
@@ -44,31 +30,43 @@ const WeightListView = React.createClass({
     }
   },
 
-  renderRow(rowData) {
-    const rowDataDefined = typeof rowData !== 'undefined';
-    const rDate = rowDataDefined ? moment(rowData.date).format('D.M.YYYY') : '';
-    const rWeight = rowDataDefined ? rowData.weight : '';
-    return (<Row date={rDate} weight={rWeight} />);
-  },
-
   render() {
-    return (
-      <View style={styles.container}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-          />
-      </View>
-    );
+    if (this.props.history.count() > 0) {
+      const weightRows = this.props.history.sort(this.compare).map(
+        (historySpot, key) =>
+        (<Row key={key} date={historySpot.get('date')} weight={historySpot.get('weight')}/>)
+      );
+      return (
+        <ScrollView style={styles.scrollContainer}>
+          <View style={styles.rowContainer}>
+            {weightRows}
+          </View>
+        </ScrollView>
+      );
+    } else {
+      return (
+        <ScrollView style={styles.scrollContainer}>
+          <View style={styles.rowContainer}>
+            <Text>
+              No history yet
+            </Text>
+          </View>
+        </ScrollView>
+      );
+    }
   }
 });
 
 const styles = StyleSheet.create({
-  container: {
+  scrollContainer: {
     flex: 1,
+    backgroundColor: 'white',
+    paddingTop: 50,
+    height: 300
+  },
+  rowContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white'
+    alignItems: 'center'
   }
 });
 

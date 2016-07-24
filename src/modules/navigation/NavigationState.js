@@ -35,7 +35,7 @@ export function navigationCompleted() {
 const initialState = fromJS(
   createNavigationState('MainNavigation', 'App', [
     createNavigationState('FormTab', 'dashboard', [{key: 'Form', title: 'Form'}]),
-    createNavigationState('StatsTab', 'area-chart', [{key: 'Color', title: 'Color'}]),
+    createNavigationState('ChartTab', 'area-chart', [{key: 'Chart', title: 'Chart'}]),
     createNavigationState('ListTab', 'list', [{key: 'List', title: 'List'}])
   ]));
 

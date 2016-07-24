@@ -22,10 +22,12 @@ export default function WeightStateReducer(state = initialState, action = {}) {
     case SET_WEIGHT: {
       const newDate = action.payload.key;
       const newWeight = action.payload.value;
-      return state.update(state.findIndex((obj) => obj.date === newDate),
-        Map({date: newDate, weight: newWeight}),
-        (v) => v
-      );
+      const i = state.findIndex((weightData) => weightData.get('date') === newDate);
+      if (i >= 0) {
+        return state.set(i, Map({date: newDate, weight: newWeight}));
+      } else {
+        return state.push(Map({date: newDate, weight: newWeight}));
+      }
     }
 
     default:
