@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 100
   }
 });
 

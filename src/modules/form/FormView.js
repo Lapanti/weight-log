@@ -1,14 +1,14 @@
 import * as FormState from './FormState';
 import * as WeightState from '../weight/WeightState';
+import Toast from '../../components/Toast';
 import React, {PropTypes} from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  TextInput,
-  Platform,
-  ToastAndroid
+  TextInput
 } from 'react-native';
+import DatePicker from 'react-native-datepicker';
 
 const moment = require('moment');
 
@@ -25,10 +25,18 @@ const FormView = React.createClass({
   save() {
     if (this.props.valid) {
       this.props.dispatch(WeightState.setWeight(this.props.date, this.props.weight));
+      this._successToast.showToast();
+    } else {
+      this._failToast.showToast();
     }
-    if (Platform.OS === 'android') {
-      ToastAndroid.show('Weight saved', ToastAndroid.SHORT);
-    }
+  },
+
+  setSuccessToast(toast) {
+    this._successToast = toast;
+  },
+
+  setFailToast(toast) {
+    this._failToast = toast;
   },
 
   render() {
@@ -37,18 +45,36 @@ const FormView = React.createClass({
 
     return (
       <View style={styles.container}>
-        <Text>
-          {this.props.date}
-        </Text>
+        <Toast
+          toastColor='green'
+          message='Saved'
+          ref={(toast) => this.setSuccessToast(toast)}
+          />
+        <Toast
+          toastColor='red'
+          message='Not valid'
+          ref={(toast) => this.setFailToast(toast)}
+          />
+        <DatePicker
+          style={[styles.generalInput, styles.dateInput]}
+          date={this.props.date}
+          mode='date'
+          format='D.M.YYYY'
+          maxDate={moment().format('D-M-YYYY')}
+          confirmBtnText='Confirm'
+          cancelBtnText='Cancel'
+          showIcon={false}
+          onDateChange={(newDate) => this.props.dispatch(FormState.setDate(newDate))}
+          />
         <TextInput
           value={weight}
           keyboardType='number-pad'
           onChangeText={(newWeight) => this.props.dispatch(FormState.setWeight(newWeight, valid))}
-          style={[styles.textInput, valid ? styles.okay : styles.error]}
+          style={[styles.generalInput, styles.textInput, valid ? styles.okay : styles.error]}
           />
         <Text
           onPress={this.save}
-          style={[styles.submitButton, valid ? styles.okay : styles.error]}
+          style={[styles.submitButton]}
           >
           Save
         </Text>
@@ -64,18 +90,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white'
   },
-  textInput: {
+  generalInput: {
     alignSelf: 'center',
-    margin: 20,
     height: 40,
-    width: 50,
     borderWidth: 1,
-    textAlign: 'center'
+    borderRadius: 5
+  },
+  dateInput: {
+    margin: 20,
+    width: 100
+  },
+  textInput: {
+    textAlign: 'center',
+    margin: 20,
+    width: 50
   },
   submitButton: {
     alignSelf: 'center',
-    margin: 20,
-    borderWidth: 1
+    margin: 20
   },
   okay: {
     borderColor: 'green'

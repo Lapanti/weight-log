@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import Chart from 'react-native-chart';
 
 const moment = require('moment');
 
@@ -27,19 +26,12 @@ const ChartView = React.createClass({
   },
 
   render() {
-    const data = this.props.history.sort(this.compare).map(
+    this.props.history.sort(this.compare).map(
       (weightData) =>
       [weightData.get('date'), weightData.get('weight')]
     ).toJS();
-    console.log('Data: ', data);
     return (
-      <View style={styles.container}>
-        <Chart
-          style={styles.chart}
-          data={data.length !== 0 ? data : [['0', '0']]}
-          type='line'
-          />
-      </View>
+      <View style={styles.container} />
     );
   }
 });
